@@ -7,6 +7,19 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const bcrypt = require("bcryptjs");
+const session = require("express-session");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+// Connect to database
+mongoose.connect(process.env.dbConnect);
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "mongo connection error"));
+
+// Add new schemas to the database (Done via imports?)
 
 // Import app routing
 const indexRouter = require('./routes/index');
