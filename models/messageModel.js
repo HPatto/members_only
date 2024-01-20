@@ -8,7 +8,7 @@ const Schema = mongoose.Schema;
 const MessageSchema = new Schema({
   userID: { type: Schema.Types.ObjectId, required: true },
   text: { type: String, required: true },
-  timestamp: { type: DateTime, required: true }
+  timestamp: { type: Date, required: true }
 });
 
 // Export model

@@ -21,7 +21,7 @@ db.on("error", console.error.bind(console, "mongo connection error"));
 
 // Add new schemas to the database (Done via imports?)
 const User = require('./models/userModel.js');
-const Message = require('./models/MessageModel.js');
+const Message = require('./models/messageModel.js');
 
 // Import app routing
 const indexRouter = require('./routes/index');
