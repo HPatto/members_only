@@ -26,7 +26,7 @@ const Message = require('./models/messageModel.js');
 
 // Import app routing
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const signupRouter = require('./routes/signup');
 
 // Some security stuff here?
 
@@ -48,7 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/node_modules', express.static('node_modules'));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/signup', signupRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

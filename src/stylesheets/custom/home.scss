@@ -1,0 +1,20 @@
+.home {
+    grid-row: 2 / 3;
+
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 4fr 1fr;
+    gap: 2 * $general-padding;
+
+    padding: 2 * $general-padding;
+
+    .message-box {
+        grid-column: 1 / 2;
+        background-color: antiquewhite;
+    }
+
+    .nav-box {
+        grid-column: 2 / 3;
+        background-color: cornflowerblue;
+    }
+}

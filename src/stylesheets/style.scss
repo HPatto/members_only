@@ -3,9 +3,10 @@
 // Import variables
 @import "../../node_modules/normalize.css/normalize.css";
 @import "../../src/stylesheets/variables";
-@import "../stylesheets/header.scss";
-@import "../stylesheets/footer.scss";
-@import "../stylesheets/main.scss";
+@import "../stylesheets/standard/header.scss";
+@import "../stylesheets/standard/footer.scss";
+@import "../stylesheets/custom/home.scss";
+@import "../stylesheets/custom/signup.scss";
 
 * {
     box-sizing: border-box;

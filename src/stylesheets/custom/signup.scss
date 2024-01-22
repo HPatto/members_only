@@ -1,4 +1,4 @@
-main {
+.signup {
     grid-row: 2 / 3;
 
     display: grid;
@@ -8,12 +8,12 @@ main {
 
     padding: 2 * $general-padding;
 
-    .message-box {
+    .signup-form {
         grid-column: 1 / 2;
         background-color: antiquewhite;
     }
 
-    .nav-box {
+    .info {
         grid-column: 2 / 3;
         background-color: cornflowerblue;
     }
