@@ -27,6 +27,7 @@ const Message = require('./models/messageModel.js');
 // Import app routing
 const indexRouter = require('./routes/index');
 const signupRouter = require('./routes/signup');
+const loginRouter = require('./routes/login');
 
 // Some security stuff here?
 
@@ -49,6 +50,7 @@ app.use('/node_modules', express.static('node_modules'));
 
 app.use('/', indexRouter);
 app.use('/signup', signupRouter);
+app.use('/login', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
