@@ -6,11 +6,13 @@ header {
   justify-content: left;
   align-items: center;
   padding: 10px;
-  background-color: #FFDEFA;
-  color: #39375B; }
+  background-color: #39375B;
+  color: #f9faf8; }
   header p {
     font-size: 30px;
-    font-weight: 900; }
+    font-weight: 700;
+    word-spacing: 4px;
+    letter-spacing: 4px; }
 
 footer {
   grid-row: 3 / 4;
@@ -19,25 +21,106 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background-color: #FFDEFA;
-  color: #39375B; }
+  background-color: #39375B;
+  color: #f9faf8; }
   footer p {
-    font-size: 30px;
-    font-weight: 600; }
+    font-size: 22px;
+    font-weight: 550; }
 
-main {
+#email,
+#password {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  gap: 10px;
+  width: 25em; }
+  #email .field-header p,
+  #password .field-header p {
+    font-size: 24px;
+    font-weight: 480;
+    color: #f9faf8; }
+  #email input,
+  #password input {
+    font-size: 21px;
+    font-weight: 420;
+    color: #f9faf8;
+    background-color: #39375B;
+    border: 3px solid #027148;
+    border-radius: 10px;
+    padding: 8px;
+    outline: none; }
+
+.home {
   grid-row: 2 / 3;
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: 4fr 1fr;
   gap: 20px;
-  padding: 20px; }
-  main .message-box {
+  padding: 20px;
+  background-color: #f9faf8; }
+  .home .message-box {
     grid-column: 1 / 2;
-    background-color: antiquewhite; }
-  main .nav-box {
+    color: #39375B; }
+  .home .nav-box {
     grid-column: 2 / 3;
-    background-color: cornflowerblue; }
+    color: #39375B; }
+
+.signup {
+  grid-row: 2 / 3;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 4fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f9faf8;
+  color: #39375B; }
+  .signup .signup-form {
+    grid-column: 1 / 2; }
+  .signup .info {
+    grid-column: 2 / 3; }
+
+.login {
+  grid-row: 2 / 3;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 4fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  background-color: #39375B; }
+  .login .login-form {
+    grid-column: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    gap: 60px; }
+    .login .login-form .login-title {
+      text-align: left; }
+      .login .login-form .login-title p {
+        color: #f9faf8;
+        font-size: 24px;
+        font-weight: 600;
+        color: #f9faf8; }
+      .login .login-form .login-title span {
+        color: #027148; }
+    .login .login-form .login-data .login-row-1 {
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      align-items: center;
+      gap: 60px; }
+    .login .login-form .login-button button {
+      background-color: #027148;
+      font-size: 24px;
+      font-weight: 600;
+      color: #f9faf8;
+      border: 3px solid #f9faf8;
+      border-radius: 10px;
+      padding: 8px;
+      outline: none; }
+  .login .info {
+    grid-column: 2 / 3;
+    color: #f9faf8;
+    font-size: 26px; }
 
 * {
   box-sizing: border-box;
@@ -49,21 +132,3 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr; }
-
-.bg-light {
-  background-color: #FFDEFA; }
-
-.bg-mid {
-  background-color: #6886C5; }
-
-.bg-dark {
-  background-color: #39375B; }
-
-.text-light {
-  color: #FFDEFA; }
-
-.text-mid {
-  color: #6886C5; }
-
-.text-dark {
-  color: #39375B; }

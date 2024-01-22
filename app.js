@@ -40,6 +40,10 @@ app.engine('handlebars', engine());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
 
+// Register Handlebars partial
+// const Handlebars = require('handlebars');
+// Handlebars.registerPartial('info', '{{infoPartial}}');
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

@@ -7,14 +7,17 @@
     gap: 2 * $general-padding;
 
     padding: 2 * $general-padding;
+    background-color: $light-colour;
 
     .message-box {
         grid-column: 1 / 2;
-        background-color: antiquewhite;
+        // background-color: antiquewhite;
+        color: $dark-colour
     }
 
     .nav-box {
         grid-column: 2 / 3;
-        background-color: cornflowerblue;
+        color: $dark-colour;
+        // background-color: cornflowerblue;
     }
 }
