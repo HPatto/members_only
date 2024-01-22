@@ -2,14 +2,35 @@
 
 // Import variables
 @import "../../src/stylesheets/variables";
+@import "../stylesheets/header.scss";
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+
+    font-family: $font-family;
+}
 
 p {
     font-size: $font-size;
     font-weight: $font-weight;
-    font-family: $font-family;
 }
 
-h4 {
-    color: rebeccapurple;
-    background-color: orange;
+.bg-light {
+    background-color: $light-pink;
+}
+.bg-mid {
+    background-color: $mid-blue;
+}
+.bg-dark {
+    background-color: $dark-purple
+}
+.text-light {
+    color: $light-pink;
+}
+.text-mid {
+    color: $mid-blue;
+}
+.text-dark {
+    color: $dark-purple;
 }

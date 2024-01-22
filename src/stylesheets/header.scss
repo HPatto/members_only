@@ -1,1 +1,16 @@
 // Stylesheet for the header banner
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+
+    background-color: $light-pink;
+    color: $dark-purple;
+
+    p {
+        font-size: $font-size;
+        font-weight: 900;
+    }
+}

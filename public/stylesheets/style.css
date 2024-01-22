@@ -1,8 +1,37 @@
-p {
-  font-size: 20px;
-  font-weight: 700;
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  background-color: #FFDEFA;
+  color: #39375B; }
+  header p {
+    font-size: 30px;
+    font-weight: 900; }
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
   font-family: "Lucida Grande", Helvetica, Arial, sans-serif; }
 
-h4 {
-  color: rebeccapurple;
-  background-color: orange; }
+p {
+  font-size: 30px;
+  font-weight: 600; }
+
+.bg-light {
+  background-color: #FFDEFA; }
+
+.bg-mid {
+  background-color: #6886C5; }
+
+.bg-dark {
+  background-color: #39375B; }
+
+.text-light {
+  color: #FFDEFA; }
+
+.text-mid {
+  color: #6886C5; }
+
+.text-dark {
+  color: #39375B; }
