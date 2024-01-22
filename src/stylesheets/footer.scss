@@ -1,11 +1,11 @@
-// Stylesheet for the header banner
+// Stylesheet for the footer banner
 
-header {
-    grid-row: 1 / 2;
+footer {
+    grid-row: 3 / 4;
 
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
 
     padding: $general-padding;
@@ -15,6 +15,6 @@ header {
 
     p {
         font-size: $font-size;
-        font-weight: 900;
+        font-weight: 600;
     }
 }
