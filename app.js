@@ -13,6 +13,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const engine = require("express-handlebars").engine;
 
 // Connect to database
 mongoose.connect(process.env.dbConnect);
@@ -34,8 +35,9 @@ const usersRouter = require('./routes/users');
 const app = express();
 
 // view engine setup
+app.engine('handlebars', engine());
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'handlebars');
 
 app.use(logger('dev'));
 app.use(express.json());

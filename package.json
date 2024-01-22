@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "nodemonConfig": {
-    "ext": "js,mjs,cjs,json,css"
+    "ext": "js,mjs,cjs,json,css,handlebars"
   },
   "scripts": {
     "build-css": "node-sass --watch ./src/stylesheets/style.scss ./public/stylesheets/style.css",
@@ -17,9 +17,9 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.3.1",
-    "ejs": "~2.6.1",
     "express": "~4.16.1",
     "express-async-handler": "^1.2.0",
+    "express-handlebars": "^7.1.2",
     "express-session": "^1.17.3",
     "express-validator": "^7.0.1",
     "http-errors": "~1.6.3",
