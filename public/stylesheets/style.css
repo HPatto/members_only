@@ -30,6 +30,7 @@ main {
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: 4fr 1fr;
+  gap: 20px;
   padding: 20px; }
   main .message-box {
     grid-column: 1 / 2;
