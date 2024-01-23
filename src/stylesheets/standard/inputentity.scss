@@ -1,0 +1,32 @@
+.input-entity {
+    flex: 0 1 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+
+    gap: $entity-padding;
+    width: $entity-content-text-size * 18;
+
+    .input-entity-header {
+        
+        p {
+        font-size: $entity-title-text-size;
+        font-weight: $entity-title-text-weight;
+        color: $light-colour;
+        }
+    }
+
+    input {
+        font-size: $entity-content-text-size;
+        font-weight: $entity-content-text-weight;
+        color: $light-colour;
+        background-color: $dark-colour;
+    
+        border:  $standard-border;
+        border-radius: $border-radius;
+        padding: $entity-padding;
+        outline: none;
+    }
+}

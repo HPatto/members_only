@@ -2,10 +2,14 @@
 
 // Import variables
 @import "../../node_modules/normalize.css/normalize.css";
+
 @import "../../src/stylesheets/variables";
+
 @import "../stylesheets/standard/header.scss";
 @import "../stylesheets/standard/footer.scss";
-@import "../stylesheets/standard/inputfield.scss";
+@import "../stylesheets/standard/inputentity.scss";
+@import "../stylesheets/standard/info.scss";
+
 @import "../stylesheets/custom/home.scss";
 @import "../stylesheets/custom/signup.scss";
 @import "../stylesheets/custom/login.scss";

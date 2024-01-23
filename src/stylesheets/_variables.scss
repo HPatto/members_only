@@ -10,24 +10,37 @@ $font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 
 $header-text-size: 1.75rem;
 $header-text-weight: 600;
+
+$call-to-action-text-size: 1.5rem;
+$call-to-action-text-weight: 550;
+
 $footer-text-size: 1.4rem;
 $footer-text-weight: 500;
 
-$element-title-text-size: 1.5rem;
-$element-title-text-weight: 500;
-$element-content-text-size: 1rem;
-$element-content-text-weight: 400;
+$entity-title-text-size: 1.5rem;
+$entity-title-text-weight: 550;
+
+$entity-content-text-size: 1.3rem;
+$entity-content-text-weight: 400;
 
 $info-text-size: 1.5rem;
 $info-text-weight: 500;
 
 $button-text-size: 1.2rem;
-$button-text-weight: 500;
+$button-text-weight: 600;
 
 $message-text-size: 1rem;
 $message-text-weight: 500;
+
 $message-data-text-size: 0.8rem;
 $message-data-text-weight: 400;
 
 // Layout //
 $general-padding: 1rem;
+
+// Input Entities //
+$border-thickness: 0.2rem; // Input entities and buttons
+$standard-border: $border-thickness solid $accent-colour;
+$border-radius: $border-thickness * 4;
+
+$entity-padding: $general-padding * 0.5;
