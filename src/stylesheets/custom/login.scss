@@ -54,19 +54,6 @@
             gap: $intra-spacing;
             padding: $inter-spacing 0;
 
-            button {
-                background-color: $accent-colour;
-    
-                font-size: $button-text-size;
-                font-weight: $button-text-weight;
-                color: $light-colour;
-    
-                border:  $standard-border;
-                border-radius: $border-radius;
-                padding: $entity-padding;
-                outline: none;
-            }
-
             p {
                 font-size: $button-text-size;
                 font-weight: $button-text-weight;

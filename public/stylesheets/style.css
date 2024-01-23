@@ -82,20 +82,30 @@ footer {
   color: #f9faf8;
   font-size: 20px; }
 
+button {
+  background-color: #027148;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f9faf8;
+  border: 0.2rem solid #027148;
+  border-radius: 0.8rem;
+  padding: 0.5rem;
+  outline: none; }
+
 .home {
   grid-row: 2 / 3;
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: 4fr 1fr;
-  gap: 2rem;
-  padding: 2rem;
-  background-color: #f9faf8; }
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+  background-color: #39375B; }
   .home .message-box {
     grid-column: 1 / 2;
-    color: #39375B; }
+    border: 0.2rem solid #027148; }
   .home .nav-box {
     grid-column: 2 / 3;
-    color: #39375B; }
+    border: 0.2rem solid #027148; }
 
 .login {
   grid-row: 2 / 3;
@@ -135,15 +145,6 @@ footer {
       align-items: center;
       gap: 1.2rem;
       padding: 1.5rem 0; }
-      .login .login-form .login-button button {
-        background-color: #027148;
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: #f9faf8;
-        border: 0.2rem solid #027148;
-        border-radius: 0.8rem;
-        padding: 0.5rem;
-        outline: none; }
       .login .login-form .login-button p {
         font-size: 1.2rem;
         font-weight: 600;
@@ -192,15 +193,6 @@ footer {
       align-items: center;
       gap: 1.2rem;
       padding: 1.5rem 0; }
-      .signup .signup-form .signup-button button {
-        background-color: #027148;
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: #f9faf8;
-        border: 0.2rem solid #027148;
-        border-radius: 0.8rem;
-        padding: 0.5rem;
-        outline: none; }
       .signup .signup-form .signup-button p {
         font-size: 1.2rem;
         font-weight: 600;

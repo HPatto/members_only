@@ -4,18 +4,18 @@
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: 4fr 1fr;
-    gap: 2 * $general-padding;
+    gap: $inter-spacing;
 
-    padding: 2 * $general-padding;
-    background-color: $light-colour;
+    padding: 0 $inter-spacing;
+    background-color: $dark-colour;
 
     .message-box {
         grid-column: 1 / 2;
-        color: $dark-colour
+        border: $standard-border;
     }
 
     .nav-box {
         grid-column: 2 / 3;
-        color: $dark-colour;
+        border: $standard-border;
     }
 }
