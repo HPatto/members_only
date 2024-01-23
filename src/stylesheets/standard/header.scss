@@ -1,4 +1,4 @@
-// Stylesheet for the header banner
+// Stylesheet for the header section
 
 header {
     grid-row: 1 / 2;
@@ -14,9 +14,9 @@ header {
     color: $light-colour;
 
     p {
-        font-size: $font-size;
-        font-weight: 700;
-        word-spacing: 4px;
-        letter-spacing: 4px;
+        font-size: $header-text-size;
+        font-weight: $header-text-weight;
+
+        letter-spacing: $header-text-size * 0.5;
     }
 }

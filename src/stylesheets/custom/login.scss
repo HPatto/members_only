@@ -21,13 +21,13 @@
             text-align: left;
             p {
                 color: $light-colour;
-                font-size: $font-size* 0.8;
-                font-weight: $font-weight;
+                font-size: $info-text-size;
+                font-weight: $info-text-weight;
                 color: $light-colour;
             }
 
             span {
-                color: $mid-colour;
+                color: $accent-colour;
             }
         }
 
@@ -44,10 +44,10 @@
 
         .login-button {
             button {
-                background-color: $mid-colour;
+                background-color: $accent-colour;
     
-                font-size: $font-size* 0.8;
-                font-weight: $font-weight;
+                font-size: $button-text-size;
+                font-weight: $button-text-weight;
                 color: $light-colour;
     
                 border:  3px solid $light-colour;

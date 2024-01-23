@@ -51,6 +51,7 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/node_modules', express.static('node_modules'));
+app.use('/public', express.static('public'));
 
 app.use('/', indexRouter);
 app.use('/signup', signupRouter);

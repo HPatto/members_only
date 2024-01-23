@@ -5,14 +5,13 @@ header {
   flex-direction: row;
   justify-content: left;
   align-items: center;
-  padding: 10px;
+  padding: 1rem;
   background-color: #39375B;
   color: #f9faf8; }
   header p {
-    font-size: 30px;
-    font-weight: 700;
-    word-spacing: 4px;
-    letter-spacing: 4px; }
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: 0.875rem; }
 
 footer {
   grid-row: 3 / 4;
@@ -20,12 +19,35 @@ footer {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 1rem;
   background-color: #39375B;
   color: #f9faf8; }
-  footer p {
-    font-size: 22px;
-    font-weight: 550; }
+  footer .footer-content {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto auto;
+    gap: 0.6rem; }
+    footer .footer-content .footer-image {
+      grid-column: 1 / 2;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      text-align: center; }
+      footer .footer-content .footer-image img {
+        height: 1.26rem;
+        padding-bottom: 0.105rem; }
+    footer .footer-content .footer-text {
+      grid-column: 2 / 3;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center; }
+      footer .footer-content .footer-text span {
+        font-size: 1.4rem;
+        font-weight: 500;
+        letter-spacing: 0.07rem;
+        line-height: 1; }
 
 #email,
 #password {
@@ -33,22 +55,22 @@ footer {
   flex-direction: column;
   justify-content: left;
   align-items: left;
-  gap: 10px;
+  gap: 1rem;
   width: 25em; }
   #email .field-header p,
   #password .field-header p {
-    font-size: 24px;
-    font-weight: 480;
+    font-size: 1.5rem;
+    font-weight: 500;
     color: #f9faf8; }
   #email input,
   #password input {
-    font-size: 21px;
-    font-weight: 420;
+    font-size: 0.7rem;
+    font-weight: 280;
     color: #f9faf8;
     background-color: #39375B;
     border: 3px solid #027148;
     border-radius: 10px;
-    padding: 8px;
+    padding: 0.8rem;
     outline: none; }
 
 .home {
@@ -56,8 +78,8 @@ footer {
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: 4fr 1fr;
-  gap: 20px;
-  padding: 20px;
+  gap: 2rem;
+  padding: 2rem;
   background-color: #f9faf8; }
   .home .message-box {
     grid-column: 1 / 2;
@@ -71,8 +93,8 @@ footer {
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: 4fr 1fr;
-  gap: 20px;
-  padding: 20px;
+  gap: 2rem;
+  padding: 2rem;
   background-color: #f9faf8;
   color: #39375B; }
   .signup .signup-form {
@@ -85,20 +107,20 @@ footer {
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: 4fr 1fr;
-  gap: 20px;
-  padding: 20px;
+  gap: 2rem;
+  padding: 2rem;
   background-color: #39375B; }
   .login .login-form {
     grid-column: 1 / 2;
     display: flex;
     flex-direction: column;
-    gap: 60px; }
+    gap: 6rem; }
     .login .login-form .login-title {
       text-align: left; }
       .login .login-form .login-title p {
         color: #f9faf8;
-        font-size: 24px;
-        font-weight: 600;
+        font-size: 1.5rem;
+        font-weight: 500;
         color: #f9faf8; }
       .login .login-form .login-title span {
         color: #027148; }
@@ -107,15 +129,15 @@ footer {
       flex-direction: row;
       justify-content: left;
       align-items: center;
-      gap: 60px; }
+      gap: 6rem; }
     .login .login-form .login-button button {
       background-color: #027148;
-      font-size: 24px;
-      font-weight: 600;
+      font-size: 1.2rem;
+      font-weight: 500;
       color: #f9faf8;
       border: 3px solid #f9faf8;
       border-radius: 10px;
-      padding: 8px;
+      padding: 0.8rem;
       outline: none; }
   .login .info {
     grid-column: 2 / 3;

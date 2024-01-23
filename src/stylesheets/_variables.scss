@@ -2,13 +2,32 @@
 
 // Colour palette
 $dark-colour: #39375B;
-$mid-colour: #027148;
+$accent-colour: #027148;
 $light-colour: #f9faf8;
 
 // Text //
-$font-size: 30px;
-$font-weight: 600;
 $font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 
-// Layout
-$general-padding: 10px;
+$header-text-size: 1.75rem;
+$header-text-weight: 600;
+$footer-text-size: 1.4rem;
+$footer-text-weight: 500;
+
+$element-title-text-size: 1.5rem;
+$element-title-text-weight: 500;
+$element-content-text-size: 1rem;
+$element-content-text-weight: 400;
+
+$info-text-size: 1.5rem;
+$info-text-weight: 500;
+
+$button-text-size: 1.2rem;
+$button-text-weight: 500;
+
+$message-text-size: 1rem;
+$message-text-weight: 500;
+$message-data-text-size: 0.8rem;
+$message-data-text-weight: 400;
+
+// Layout //
+$general-padding: 1rem;

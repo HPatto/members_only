@@ -1,4 +1,4 @@
-// Stylesheet for the footer banner
+// Stylesheet for the footer section
 
 footer {
     grid-row: 3 / 4;
@@ -13,8 +13,48 @@ footer {
     background-color: $dark-colour;
     color: $light-colour;
 
-    p {
-        font-size: 22px;
-        font-weight: 550;
+    .footer-content {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: auto auto;
+
+        gap: $general-padding * 0.6;
+
+        .footer-image {
+            grid-column: 1 / 2;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            img {
+                height: $footer-text-size * 0.9;
+                padding-bottom: $footer-text-size * 0.075;
+            }
+
+        }
+
+        .footer-text {
+            grid-column: 2 / 3;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            span {
+                // margin: 0;
+                font-size: $footer-text-size;
+                font-weight: $footer-text-weight;
+        
+                // word-spacing: $footer-text-size * 0.25;
+                letter-spacing: $footer-text-size * 0.05;
+                line-height: 1;
+            }
+
+        }
     }
 }
