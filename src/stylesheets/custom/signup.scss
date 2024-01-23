@@ -4,19 +4,83 @@
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: 4fr 1fr;
-    gap: 2 * $general-padding;
+    gap: $inter-spacing;
 
-    padding: 2 * $general-padding;
-    background-color: $light-colour;
-    color: $dark-colour;
+    padding: 0 $inter-spacing;
+    background-color: $dark-colour;
 
     .signup-form {
         grid-column: 1 / 2;
-        // background-color: antiquewhite;
-    }
 
-    .info {
-        grid-column: 2 / 3;
-        // background-color: cornflowerblue;
+        display: flex;
+        flex-direction: column;
+
+        .signup-title {
+            text-align: left;
+            padding: $inter-spacing 0;
+            
+            p {
+                color: $light-colour;
+                font-size: $call-to-action-text-size;
+                font-weight: $call-to-action-text-weight;
+                letter-spacing: $call-to-action-text-size * 0.1;
+            }
+
+            span {
+                color: $accent-colour;
+                letter-spacing: $call-to-action-text-size * 0.5;
+            }
+        }
+
+        .signup-entities {
+            padding: $inter-spacing 0;
+
+            display: flex;
+            flex-direction: column;
+            
+            gap: $intra-spacing;
+
+            .signup-entity-row {
+                display: flex;
+                flex-direction: row;
+                justify-content: left;
+                align-items: center;
+
+                gap: $general-padding * 4;
+            }
+        }
+
+        .signup-button {
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            align-items: center;
+
+            gap: $intra-spacing;
+            padding: $inter-spacing 0;
+
+            button {
+                background-color: $accent-colour;
+    
+                font-size: $button-text-size;
+                font-weight: $button-text-weight;
+                color: $light-colour;
+    
+                border:  $standard-border;
+                border-radius: $border-radius;
+                padding: $entity-padding;
+                outline: none;
+            }
+
+            p {
+                font-size: $button-text-size;
+                font-weight: $button-text-weight;
+                color: $light-colour;
+
+                a {
+                    color: $accent-colour;
+                }
+            }
+        }
     }
 }

@@ -37,6 +37,9 @@ $message-data-text-weight: 400;
 
 // Layout //
 $general-padding: 1rem;
+$intra-spacing: $general-padding * 1.2;
+$inter-spacing: $general-padding * 1.5;
+// $aesthetic-top-spacing: $general-padding;
 
 // Input Entities //
 $border-thickness: 0.2rem; // Input entities and buttons
