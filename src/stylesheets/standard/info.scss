@@ -1,5 +1,22 @@
 .info {
-    grid-column: 2 / 3;
+    // grid-column: 2 / 3;
     color: $light-colour;
     font-size: 20px;
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            font-size: $entity-content-text-size;
+            font-weight: $button-text-weight;
+            color: $light-colour;
+            background-color: $dark-colour;
+        
+            padding: $entity-padding * 2;
+            border: 0px;
+            border-radius: $border-radius;
+            outline: none;
+        }
+    }
 }

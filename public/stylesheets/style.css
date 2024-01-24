@@ -94,9 +94,20 @@ footer {
     outline: none; }
 
 .info {
-  grid-column: 2 / 3;
   color: #f9faf8;
   font-size: 20px; }
+  .info ul {
+    list-style: none;
+    padding: 0; }
+    .info ul li {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #f9faf8;
+      background-color: #39375B;
+      padding: 1rem;
+      border: 0px;
+      border-radius: 0.8rem;
+      outline: none; }
 
 button,
 .button-link {
@@ -129,7 +140,7 @@ button,
   justify-content: start;
   align-items: center;
   padding: 1.2rem;
-  gap: 0.6rem;
+  gap: 1.2rem;
   overflow: auto;
   max-height: 22.55rem; }
 
@@ -140,14 +151,14 @@ button,
   align-items: center;
   width: 100%;
   border-left: 0.2rem solid #f9faf8;
-  border-radius: 0.8rem; }
+  border-bottom: 0.2rem solid #f9faf8;
+  border-radius: 0.4rem; }
   .message-entity .message-content {
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: left;
-    gap: 1.2rem; }
+    align-items: left; }
   .message-entity a {
     flex: 0 0 auto; }
 
@@ -163,7 +174,7 @@ button,
     border-radius: 0.8rem;
     outline: none; }
 
-.message-data {
+.message-info {
   flex: 1 0 auto;
   font-size: 0.8rem;
   font-weight: 400;
@@ -310,4 +321,49 @@ button,
         font-weight: 600;
         color: #f9faf8; }
         .signup .signup-form .signup-button p a {
+          color: #027148; }
+
+.membership-attempt {
+  grid-row: 2 / 3;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 4fr 1fr;
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+  background-color: #39375B; }
+  .membership-attempt .membership-form {
+    grid-column: 1 / 2;
+    display: flex;
+    flex-direction: column; }
+    .membership-attempt .membership-form .membership-title {
+      text-align: left;
+      padding: 1.5rem 0; }
+      .membership-attempt .membership-form .membership-title p {
+        color: #f9faf8;
+        font-size: 1.5rem;
+        font-weight: 550;
+        letter-spacing: 0.15rem; }
+      .membership-attempt .membership-form .membership-title span {
+        color: #027148;
+        letter-spacing: 0.75rem; }
+    .membership-attempt .membership-form .membership-entities {
+      padding: 1.5rem 0; }
+      .membership-attempt .membership-form .membership-entities .membership-entity-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        gap: 4rem; }
+    .membership-attempt .membership-form .membership-button {
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1.5rem 0; }
+      .membership-attempt .membership-form .membership-button p {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #f9faf8; }
+        .membership-attempt .membership-form .membership-button p a {
           color: #027148; }

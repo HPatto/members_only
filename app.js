@@ -26,9 +26,12 @@ const Message = require('./models/messageModel.js');
 
 // Import app routing
 const indexRouter = require('./routes/index');
+const memberRouter = require('./routes/member');
+const adminRouter = require('./routes/admin');
 const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
-const devRouter = require('./routes/dev');
+const userRouter = require('./routes/user');
+const memberAttemptRouter = require('./routes/memberattempt');
 
 // Some security stuff here?
 
@@ -53,7 +56,10 @@ app.use('/public', express.static('public'));
 app.use('/', indexRouter);
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
-app.use('/dev', devRouter);
+app.use('/member', memberRouter);
+app.use('/admin', adminRouter);
+app.use('/user', userRouter);
+app.use('/memberattempt', memberAttemptRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -68,7 +74,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('errorpage');
+  res.render('error');
 });
 
 module.exports = app;

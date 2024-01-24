@@ -1,0 +1,68 @@
+.membership-attempt {
+    grid-row: 2 / 3;
+
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 4fr 1fr;
+    gap: $inter-spacing;
+
+    padding: 0 $inter-spacing;
+    background-color: $dark-colour;
+
+    .membership-form {
+        grid-column: 1 / 2;
+
+        display: flex;
+        flex-direction: column;
+
+        .membership-title {
+            text-align: left;
+            padding: $inter-spacing 0;
+            
+            p {
+                color: $light-colour;
+                font-size: $call-to-action-text-size;
+                font-weight: $call-to-action-text-weight;
+                letter-spacing: $call-to-action-text-size * 0.1;
+            }
+
+            span {
+                color: $accent-colour;
+                letter-spacing: $call-to-action-text-size * 0.5;
+            }
+        }
+
+        .membership-entities {
+            padding: $inter-spacing 0;
+
+            .membership-entity-row {
+                display: flex;
+                flex-direction: row;
+                justify-content: left;
+                align-items: center;
+
+                gap: $general-padding * 4;
+            }
+        }
+
+        .membership-button {
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            align-items: center;
+
+            gap: $intra-spacing;
+            padding: $inter-spacing 0;
+
+            p {
+                font-size: $button-text-size;
+                font-weight: $button-text-weight;
+                color: $light-colour;
+
+                a {
+                    color: $accent-colour;
+                }
+            }
+        }
+    }
+}
