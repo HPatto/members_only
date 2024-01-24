@@ -18,15 +18,5 @@ header {
         font-weight: $header-text-weight;
 
         letter-spacing: $header-text-size * 0.5;
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        a:visited {
-            text-decoration: none;
-            color: inherit;
-        }
     }
 }

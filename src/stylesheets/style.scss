@@ -5,17 +5,6 @@
 
 @import "../../src/stylesheets/variables";
 
-@import "../stylesheets/standard/header.scss";
-@import "../stylesheets/standard/footer.scss";
-@import "../stylesheets/standard/inputentity.scss";
-@import "../stylesheets/standard/info.scss";
-@import "../stylesheets/standard/button.scss";
-
-@import "../stylesheets/custom/landingpage.scss";
-@import "../stylesheets/custom/login.scss";
-@import "../stylesheets/custom/signup.scss";
-
-
 * {
     box-sizing: border-box;
     margin: 0px;
@@ -30,3 +19,27 @@ body {
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 1fr;
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+.full-width {
+    width: 100%;
+}
+
+@import "../stylesheets/standard/header.scss";
+@import "../stylesheets/standard/footer.scss";
+@import "../stylesheets/standard/inputentity.scss";
+@import "../stylesheets/standard/info.scss";
+@import "../stylesheets/standard/button.scss";
+
+@import "../stylesheets/custom/landingpage.scss";
+@import "../stylesheets/custom/login.scss";
+@import "../stylesheets/custom/signup.scss";

@@ -16,6 +16,13 @@
 
     .nav-box {
         grid-column: 2 / 3;
-        border: $standard-border;
+        // border: $standard-border;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        gap: $inter-spacing;
+
     }
 }

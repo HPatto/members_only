@@ -4,16 +4,16 @@
     </div>
     <div class="signup-entities">
         <div class="signup-entity-row">
-            {{> email}}
-            {{> displayname}}
+            {{> inputs/email}}
+            {{> inputs/displayname}}
         </div>
         <div class="signup-entity-row">
-            {{> password}}
-            {{> confirmpassword}}
+            {{> inputs/password}}
+            {{> inputs/confirmpassword}}
         </div>
     </div>
     <div class="signup-button">
-        {{> signupbutton}}
+        <button type="submit">SIGN UP</button>
         <p>RETURNING STREAMER? <a href="/login">LOG IN</a></p>
     </div>
 </form>

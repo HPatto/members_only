@@ -1,4 +1,5 @@
-button {
+button,
+.button-link {
     background-color: $accent-colour;
 
     font-size: $button-text-size;
@@ -9,4 +10,11 @@ button {
     border-radius: $border-radius;
     padding: $entity-padding;
     outline: none;
+}
+
+
+.button-link {
+    p {
+        text-align: center;
+    }
 }
