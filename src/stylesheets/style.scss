@@ -1,9 +1,12 @@
 // Main stylesheet for the web application
 
-// Import variables
-@import "../../node_modules/normalize.css/normalize.css";
+// Import defaults
 
+@import "../../node_modules/normalize.css/normalize.css";
 @import "../../src/stylesheets/variables";
+
+
+// Define global styles
 
 * {
     box-sizing: border-box;
@@ -34,12 +37,16 @@ a:visited {
     width: 100%;
 }
 
+
+// Import specific styles
+
 @import "../stylesheets/standard/header.scss";
 @import "../stylesheets/standard/footer.scss";
 @import "../stylesheets/standard/inputentity.scss";
 @import "../stylesheets/standard/info.scss";
 @import "../stylesheets/standard/button.scss";
+@import "../stylesheets/standard/messageinput.scss";
 
-@import "../stylesheets/custom/landingpage.scss";
+@import "../stylesheets/custom/feature.scss";
 @import "../stylesheets/custom/login.scss";
 @import "../stylesheets/custom/signup.scss";

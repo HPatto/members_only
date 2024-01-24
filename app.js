@@ -28,6 +28,7 @@ const Message = require('./models/messageModel.js');
 const indexRouter = require('./routes/index');
 const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
+const devRouter = require('./routes/dev');
 
 // Some security stuff here?
 
@@ -39,10 +40,6 @@ const app = express();
 app.engine('handlebars', engine());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
-
-// Register Handlebars partial
-// const Handlebars = require('handlebars');
-// Handlebars.registerPartial('info', '{{infoPartial}}');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -56,6 +53,7 @@ app.use('/public', express.static('public'));
 app.use('/', indexRouter);
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
+app.use('/dev', devRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

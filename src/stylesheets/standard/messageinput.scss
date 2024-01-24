@@ -1,0 +1,34 @@
+.message-input {
+    grid-row: 2 / 3;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    border: $border-thickness solid $light-colour;
+    border-radius: $border-radius;
+
+    input {
+        flex: 1 0 auto;
+
+        font-size: $entity-content-text-size;
+        font-weight: $entity-content-text-weight;
+        color: $light-colour;
+        background-color: $dark-colour;
+    
+        padding: $entity-padding;
+        border: 0px;
+        border-radius: $border-radius;
+        outline: none;
+    }
+
+    .send-message-button {
+        flex: 0 0 auto;
+
+        .enclosed-send-button {
+            border-radius: 0;
+            border-bottom-right-radius: $border-radius - $border-thickness;
+            border-top-right-radius: $border-radius - $border-thickness;
+        }
+    }
+}

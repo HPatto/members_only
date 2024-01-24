@@ -1,4 +1,4 @@
-.home {
+.content {
     grid-row: 2 / 3;
 
     display: grid;
@@ -9,20 +9,21 @@
     padding: 0 $inter-spacing;
     background-color: $dark-colour;
 
-    .message-box {
+    .main-feature {
         grid-column: 1 / 2;
-        border: $standard-border;
+
+        display: grid;
+        grid-template-rows: auto min-content;
+        grid-template-columns: auto;
     }
 
-    .nav-box {
+    .sidebar {
         grid-column: 2 / 3;
-        // border: $standard-border;
 
         display: flex;
         flex-direction: column;
         justify-content: start;
         align-items: center;
         gap: $inter-spacing;
-
     }
 }
