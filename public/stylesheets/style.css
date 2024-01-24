@@ -109,8 +109,70 @@ button,
   padding: 0.5rem;
   outline: none; }
 
-.button-link p {
+.button-link-delete {
+  background-color: maroon;
+  font-size: 1.1rem;
+  font-weight: 540;
+  color: #f9faf8;
+  border: maroon solid 0.2rem;
+  border-radius: 0.8rem;
+  padding: 0.25rem;
+  outline: none; }
+
+.button-link p,
+.button-link-delete p {
   text-align: center; }
+
+.message-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 1.2rem;
+  gap: 0.6rem;
+  overflow: auto;
+  max-height: 22.55rem; }
+
+.message-entity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-left: 0.2rem solid #f9faf8;
+  border-radius: 0.8rem; }
+  .message-entity .message-content {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 1.2rem; }
+  .message-entity a {
+    flex: 0 0 auto; }
+
+.message-text {
+  flex: 1 0 auto; }
+  .message-text p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #f9faf8;
+    background-color: #39375B;
+    padding: 0.25rem;
+    border: 0px;
+    border-radius: 0.8rem;
+    outline: none; }
+
+.message-data {
+  flex: 1 0 auto;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #f9faf8;
+  background-color: #39375B;
+  padding: 0.25rem;
+  border: 0px;
+  border-radius: 0.8rem;
+  outline: none; }
 
 .message-input {
   grid-row: 2 / 3;
@@ -147,7 +209,7 @@ button,
   .content .main-feature {
     grid-column: 1 / 2;
     display: grid;
-    grid-template-rows: auto min-content;
+    grid-template-rows: 1fr min-content;
     grid-template-columns: auto; }
   .content .sidebar {
     grid-column: 2 / 3;

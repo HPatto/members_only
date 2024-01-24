@@ -12,8 +12,22 @@ button,
     outline: none;
 }
 
+.button-link-delete {
+    background-color: $warning-colour;
 
-.button-link {
+    font-size: $message-text-size;
+    font-weight: $button-text-weight * 0.9;
+    color: $light-colour;
+
+    border:  $warning-colour solid $border-thickness;
+    border-radius: $border-radius;
+    padding: $entity-padding * 0.5;
+    outline: none;
+}
+
+
+.button-link,
+.button-link-delete {
     p {
         text-align: center;
     }

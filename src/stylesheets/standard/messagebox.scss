@@ -1,0 +1,12 @@
+.message-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    padding: $intra-spacing;
+    gap: $intra-spacing * 0.5;
+
+    overflow: auto;
+    max-height: $message-text-size * 20.5;
+}

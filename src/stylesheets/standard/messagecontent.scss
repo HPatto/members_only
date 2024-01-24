@@ -1,0 +1,29 @@
+.message-text {
+    flex: 1 0 auto;
+
+    p {
+        font-size: $message-text-size;
+        font-weight: $message-text-weight;
+        color: $light-colour;
+        background-color: $dark-colour;
+    
+        padding: $entity-padding * 0.5;
+        border: 0px;
+        border-radius: $border-radius;
+        outline: none;
+    }
+}
+
+.message-data {
+    flex: 1 0 auto;
+    
+    font-size: $message-data-text-size;
+    font-weight: $message-data-text-weight;
+    color: $light-colour;
+    background-color: $dark-colour;
+
+    padding: $entity-padding * 0.5;
+    border: 0px;
+    border-radius: $border-radius;
+    outline: none;
+}
