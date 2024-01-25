@@ -1,0 +1,26 @@
+.error {
+
+    padding: 0 $inter-spacing;
+    background-color: $dark-colour;
+
+    .error-title {
+        text-align: left;
+        padding: $inter-spacing 0;
+        
+        p {
+            color: $light-colour;
+            font-size: $call-to-action-text-size;
+            font-weight: $call-to-action-text-weight;
+            letter-spacing: $call-to-action-text-size * 0.1;
+        }
+    }
+
+    .error-message {
+        p {
+            font-size: $entity-content-text-size;
+            font-weight: $button-text-weight;
+            color: $light-colour;
+            background-color: $dark-colour;
+        }
+    }
+}

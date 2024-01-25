@@ -93,21 +93,18 @@ footer {
     padding: 0.5rem;
     outline: none; }
 
-.info {
-  color: #f9faf8;
-  font-size: 20px; }
-  .info ul {
-    list-style: none;
-    padding: 0; }
-    .info ul li {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #f9faf8;
-      background-color: #39375B;
-      padding: 1rem;
-      border: 0px;
-      border-radius: 0.8rem;
-      outline: none; }
+.info ul {
+  list-style: none;
+  padding: 0; }
+  .info ul li {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #f9faf8;
+    background-color: #39375B;
+    padding: 1rem;
+    border: 0px;
+    border-radius: 0.8rem;
+    outline: none; }
 
 button,
 .button-link {
@@ -367,3 +364,20 @@ button,
         color: #f9faf8; }
         .membership-attempt .membership-form .membership-button p a {
           color: #027148; }
+
+.error {
+  padding: 0 1.5rem;
+  background-color: #39375B; }
+  .error .error-title {
+    text-align: left;
+    padding: 1.5rem 0; }
+    .error .error-title p {
+      color: #f9faf8;
+      font-size: 1.5rem;
+      font-weight: 550;
+      letter-spacing: 0.15rem; }
+  .error .error-message p {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #f9faf8;
+    background-color: #39375B; }
