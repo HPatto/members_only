@@ -4,38 +4,58 @@ const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const User = require('../models/userModel');
 
+/* Middleware functions */
+
+function emailValid(req, res, next) {
+  body('email')
+    .trim()
+    .isEmail()
+    .withMessage("Invalid e-mail address")
+    .escape();
+  
+  next();
+};
+
+function passwordLength(req, res, next) {
+  body('password')
+    .isLength()
+    .withMessage("Password must be between 8 and 20 characters")
+    .escape();
+  
+  next();
+};
+
+function confirmpasswordMatch(req, res, next) {
+    body('confirmpassword').custom((value, { req }) => {
+      return value === req.body.password;
+    });
+};
+
+function displaynameValid(req, res, next) {
+  
+  // Permitted characters in the display name
+  const regexPattern = /^[a-zA-Z0-9_-]{1,20}$/;
+
+  // Was a display name provided?
+  const displayNameProvided = req.body.displayname != "";
+
+
+
+};
+
 /* GET signup page. */
 router.get('/', function(req, res, next) {
   res.render('signup');
 });
 
 /* POST new user. */
-router.post('/', async (req, res, next) => {
+router.post(
+  '/',
+  [emailValid, passwordLength, confirmpasswordMatch,
+
+  ],
+  async (req, res, next) => {
   // Validate, sanitize, error-check, create
-
-  // Was a display name provided?
-  const displayNameProvided = req.body.displayname != "";
-
-  // Permitted characters in the display name
-  const regexPattern = /^[a-zA-Z0-9_-]{1,20}$/;
-
-  // Email field
-  body("email")
-    .trim()
-    .isEmail()
-    .withMessage("Must be a valid e-mail address!")
-    .escape();
-
-  // Password field
-  body('password').
-    isLength({ min: 8, max: 20 })
-    .withMessage("Password must be between 8 and 20 characters!")
-    .escape();
-
-  // Confirm password field
-  body('passwordConfirmation').custom((value, { req }) => {
-    return value === req.body.password;
-  });
 
   // Display name field
   if (displayNameProvided) {
@@ -43,7 +63,7 @@ router.post('/', async (req, res, next) => {
     // If the display name is invalid, send her back
     if (!(regexPattern.test(req.body.displayname))) {
       console.log("Big time displayname character error"); 
-    }
+    };
   }
 
   /*
@@ -93,6 +113,7 @@ router.post('/', async (req, res, next) => {
       res.redirect("/member");
     }
   });
+
 });
 
 module.exports = router;
