@@ -4,75 +4,59 @@ const router = express.Router();
 const { body, check, validationResult } = require("express-validator");
 const User = require('../models/userModel');
 
+// Permitted characters in the display name
+const regexPattern = /^[a-zA-Z0-9_-]{1,20}$/;
+
 /* Middleware functions */
 
-function emailValid(req, res, next) {
-  // console.log("We are checking the email!");
-  // console.log(req.body.email);
-  check('email')
+const emailFormat = () => 
+  body('email')
     .trim()
-    .isLength({ min: "12"})
-    .withMessage("Invalid length")
+    .isEmail()
+    .withMessage('Invalid e-mail address')
     .escape();
 
-  // console.log(check('email'));
-  // const emailErrors = validationResult(req);
-  // console.log(emailErrors.array());
-  next();
-};
-
-function passwordLength(req, res, next) {
-  // console.log("We are checking the password!");
+const passwordLength = () =>
   body('password')
-    .isLength()
-    .withMessage("Password must be between 8 and 20 characters")
-    .escape()
-    .optional();
-  
-  next();
-};
+    .isLength({ min: "8" })
+    .withMessage("Password must be between 8 or more characters.")
+    .escape();
 
-function confirmpasswordMatch(req, res, next) {
-  // console.log("We are checking the confirmpassword!");
+const passwordMatch = () =>
   body('confirmpassword')
   .custom((value, { req }) => {
     return value === req.body.password;
   })
   .withMessage("Passwords do not match.")
-  .optional();
-
-  next();
-};
-
-function displaynameValid(req, res, next) {
-  // console.log("We are checking the display name!");
-  
-  // Permitted characters in the display name
-  const regexPattern = /^[a-zA-Z0-9_-]{1,20}$/;
-
-  // Was a display name provided?
-  const displayNameProvided = req.body.displayname != "";
-
-  if (!displayNameProvided) {
-    next();
-  }
-
-  // Is the length suitable?
-  body('displayname')
-  .trim()
-  .isLength({ min: "1", max: "20" })
-  .withMessage("Display name must be between 1 and 20 characters.")
-  .custom(async (val) => {
-    if (!(regexPattern.test(val))) {
-      return false;
-    };
-    return true;      
-  })
-  .withMessage("Invalid characters included.")
   .escape();
 
-  next();
-};
+const displaynameFormat = () => {
+  // Was a display name provided?
+  const displayNameProvided = (body.displayname != "");
+
+  if (displayNameProvided) {
+      // Is the length suitable?
+    body('displayname')
+      .trim()
+      .isLength({ min: "1", max: "20" })
+      .withMessage("Display name must be between 1 and 20 characters.")
+      .custom(async (val) => {
+        if (!(regexPattern.test(val))) {
+          return false;
+        };
+        return true;      
+      })
+      .withMessage("Invalid characters included.")
+      .escape();
+  }
+}
+
+const mware = [
+  emailFormat(),
+  passwordLength(),
+  passwordMatch()
+  // displaynameFormat()
+];
 
 /* GET signup page. */
 router.get('/', function(req, res, next) {
@@ -118,51 +102,42 @@ emailValid, passwordLength, confirmpasswordMatch, displaynameValid
     });
 */
 
-// body('email').trim().isEmail().withMessage('Invalid e-mail address').escape(),
-
-function emailTest(req, res, next) {
-  check('email').trim().isEmail().withMessage('Invalid e-mail address').escape();
-  next();
-};
-
 /* POST new user. */
 router.post(
   '/',
-  [
-    emailTest,
-    async (req, res, next) => {
-      /*
-      Check if there are any default errors.
-      - If yes, prepare to re-render the page.
-      - If no, continue.
-      */
-      // console.log("We are in the async part!");
-      // Extract erros from default validations.
-      // console.log("We are in the async func");
-      console.log(req.body.email);
-      const defaultErrors = validationResult(req);
+  mware,
+  (req, res) => {
+    /*
+    Check if there are any default errors.
+    - If yes, prepare to re-render the page.
+    - If no, continue.
+    */
 
+    const defaultErrors = validationResult(req);
+
+    console.log(req.body);
+
+    if (!defaultErrors.isEmpty()) {
+      console.log("Some errors were found mate.");
       console.log(defaultErrors.array());
-
-      if (!defaultErrors.isEmpty()) {
-        console.log("Some errors were found mate.");
-        console.log(defaultErrors.array());
-        res.render('error');
-        return;
-      }
-
-      /*
-      What user errors are possible?
-
-      - Email format incorrect (handled on frontend)
-      - Display name of an insufficient length (handled on frontend)
-      - Email is already in use
-      - Display name is already in use
-      - Display name includes illegal characters (handled on backend)
-      */
-
+      res.render('error');
+      return;
     }
-  ]
+
+    res.send("You didn't catch the errors");
+    return;
+
+    /*
+    What user errors are possible?
+
+    - Email format incorrect (handled on frontend)
+    - Display name of an insufficient length (handled on frontend)
+    - Email is already in use
+    - Display name is already in use
+    - Display name includes illegal characters (handled on backend)
+    */
+
+  }
 );
 
 module.exports = router;
