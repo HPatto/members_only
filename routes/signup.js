@@ -2,60 +2,78 @@ const express = require('express');
 const bcrypt = require("bcryptjs");
 const router = express.Router();
 const { body, check, validationResult } = require("express-validator");
+const messages = require('../config/messages');
 const User = require('../models/userModel');
 
-// Permitted characters in the display name
+// Standards used for route processing
 const regexPattern = /^[a-zA-Z0-9_-]{1,20}$/;
 
-/* Middleware functions */
+// Error processing functions
+function generateContextFromErrorArray(errorObj) {
+  // The validation request doesn't seem to offer a way to index errors.
+  // Best if that logic is handled seperately.
+  // Really feels like a library could handle that.
+  let blankContext = {
+    "emailError": [],
+    "passwordError": [],
+    "confirmpasswordError": [],
+    "displaynameError": []
+  };
+  let newContext = blankContext;
+  errorObj.array().forEach((err) => {
+    newContext[err.path + "Error"].push(err.msg);
+  })
 
+  return newContext;
+}
+
+// Middleware functions
 const emailFormat = () => 
   body('email')
     .trim()
     .isEmail()
-    .withMessage('Invalid e-mail address')
+    .withMessage(messages.errors.emailFormat)
     .escape();
 
 const passwordLength = () =>
   body('password')
     .isLength({ min: "8" })
-    .withMessage("Password must be between 8 or more characters.")
+    .withMessage(messages.errors.passwordLength)
     .escape();
 
 const passwordMatch = () =>
   body('confirmpassword')
-  .custom((value, { req }) => {
-    return value === req.body.password;
-  })
-  .withMessage("Passwords do not match.")
-  .escape();
+    .custom((value, { req }) => {
+      return value === req.body.password;
+    })
+    .withMessage(messages.errors.passwordMatch)
+    .escape();
 
-const displaynameFormat = () => {
+const displaynameFormat = () =>
   // Was a display name provided?
-  const displayNameProvided = (body.displayname != "");
+  // Is the length suitable?
+  body('displayname')
+    .trim()
+    .isLength({ max: "20" })
+    .withMessage(messages.errors.displaynameLength)
+    .optional()
+    .custom(async (val) => {
+      if (val.length === 0) {
+        return true;
+      }
+      if (!(regexPattern.test(val))) {
+        throw new Error(messages.errors.displaynameFormat);
+      };
+      return true;      
+    })
+    .optional()
+    .escape();
 
-  if (displayNameProvided) {
-      // Is the length suitable?
-    body('displayname')
-      .trim()
-      .isLength({ min: "1", max: "20" })
-      .withMessage("Display name must be between 1 and 20 characters.")
-      .custom(async (val) => {
-        if (!(regexPattern.test(val))) {
-          return false;
-        };
-        return true;      
-      })
-      .withMessage("Invalid characters included.")
-      .escape();
-  }
-}
-
-const mware = [
+const inputMiddleware = [
   emailFormat(),
   passwordLength(),
-  passwordMatch()
-  // displaynameFormat()
+  passwordMatch(),
+  displaynameFormat()
 ];
 
 /* GET signup page. */
@@ -105,7 +123,7 @@ emailValid, passwordLength, confirmpasswordMatch, displaynameValid
 /* POST new user. */
 router.post(
   '/',
-  mware,
+  inputMiddleware,
   (req, res) => {
     /*
     Check if there are any default errors.
@@ -113,14 +131,17 @@ router.post(
     - If no, continue.
     */
 
-    const defaultErrors = validationResult(req);
+    const inputErrors = validationResult(req);
+    const inputData = {
+      givenEmail: req.body.email,
+      givenDisplayname: req.body.displayname
+    }
 
-    console.log(req.body);
-
-    if (!defaultErrors.isEmpty()) {
-      console.log("Some errors were found mate.");
-      console.log(defaultErrors.array());
-      res.render('error');
+    if (!inputErrors.isEmpty()) {
+      console.log("Errors found");
+      const sortedInputErrors = generateContextFromErrorArray(inputErrors);
+      const context = {...inputData, ...sortedInputErrors};
+      res.render('signup', context);
       return;
     }
 

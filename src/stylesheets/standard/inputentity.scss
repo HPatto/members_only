@@ -10,11 +10,44 @@
     width: $entity-content-text-size * 18;
 
     .input-entity-header {
+
+        display: grid;
+        // grid-template-rows: 1fr auto;
+        grid-template-columns: auto 1fr;
+
+        gap: $general-padding;
+
+        .input-entity-title {
+            grid-column: 1 / 2;
         
-        p {
-        font-size: $entity-title-text-size;
-        font-weight: $entity-title-text-weight;
-        color: $light-colour;
+            p {
+            font-size: $entity-title-text-size;
+            font-weight: $entity-title-text-weight;
+            color: $light-colour;
+            }
+        }
+    
+        .input-entity-errors {
+            grid-column: 2 / 3;
+            font-weight: $header-text-weight * 0.5;
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                padding: $general-padding * 0.3;
+                text-align: left;
+                width: fit-content;
+                list-style: none;
+                gap: $intra-spacing * 0.5;
+                
+                li {
+                    color: $light-colour;
+                    background-color: $warning-colour;
+                    font-size: $header-text-size * 0.6;
+                    border-radius: $border-radius * 0.5;
+                    padding: $general-padding * 0.1;
+                }
+            }
         }
     }
 

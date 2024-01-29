@@ -1,7 +1,20 @@
 <div class="input-entity">
     <div class="input-entity-header">
-        <p>Display Name (Optional)</p>
+        <div class="input-entity-title">
+            <p>Display Name</p>
+        </div>
+        <div class="input-entity-errors">
+            <ul>
+                {{#each displaynameError}}
+                    <li>
+                        {{this}}
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+
     </div>
-    {{!-- <input placeholder="Permitted: 0-9, a-z, A-Z, -, _" name="displayname" type="name" maxlength="20" pattern="^[a-zA-Z0-9_-]{1,20}$"> --}}
-    <input placeholder="Permitted: 0-9, a-z, A-Z, -, _" name="displayname" type="name">
+
+    <input placeholder="OK: 0-9, a-z, A-Z, -, _. Max. 20 chars." name="displayname" type="name" maxlength="20" pattern="^[a-zA-Z0-9_-]{1,20}$" value={{givenDisplayname}}>
+    {{!-- <input placeholder="Permitted: 0-9, a-z, A-Z, -, _" name="displayname" type="name"> --}}
 </div>

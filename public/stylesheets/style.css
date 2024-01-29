@@ -79,10 +79,33 @@ footer {
   align-items: left;
   gap: 0.5rem;
   width: 23.4rem; }
-  .input-entity .input-entity-header p {
-    font-size: 1.5rem;
-    font-weight: 550;
-    color: #f9faf8; }
+  .input-entity .input-entity-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem; }
+    .input-entity .input-entity-header .input-entity-title {
+      grid-column: 1 / 2; }
+      .input-entity .input-entity-header .input-entity-title p {
+        font-size: 1.5rem;
+        font-weight: 550;
+        color: #f9faf8; }
+    .input-entity .input-entity-header .input-entity-errors {
+      grid-column: 2 / 3;
+      font-weight: 300; }
+      .input-entity .input-entity-header .input-entity-errors ul {
+        display: flex;
+        flex-direction: column;
+        padding: 0.3rem;
+        text-align: left;
+        width: fit-content;
+        list-style: none;
+        gap: 0.6rem; }
+        .input-entity .input-entity-header .input-entity-errors ul li {
+          color: #f9faf8;
+          background-color: maroon;
+          font-size: 1.05rem;
+          border-radius: 0.4rem;
+          padding: 0.1rem; }
   .input-entity input {
     font-size: 1.3rem;
     font-weight: 400;
