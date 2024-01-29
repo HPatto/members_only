@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
   email: { type: String, required: true },
-  display_name: { type: String, required: false },
+  displayname: { type: String, required: false },
   hashed_password: { type: String, required: true }, // Correct terms?
   isMember: { type: Boolean, required: true },
   isAdmin: { type: Boolean, required: true }

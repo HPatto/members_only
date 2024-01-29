@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require("bcryptjs");
 const router = express.Router();
-const { body, check, validationResult } = require("express-validator");
+const { body, validationResult } = require("express-validator");
 const messages = require('../config/messages');
 const User = require('../models/userModel');
 
@@ -124,7 +124,7 @@ emailValid, passwordLength, confirmpasswordMatch, displaynameValid
 router.post(
   '/',
   inputMiddleware,
-  (req, res) => {
+  async (req, res) => {
     /*
     Check if there are any default errors.
     - If yes, prepare to re-render the page.
@@ -140,24 +140,78 @@ router.post(
     if (!inputErrors.isEmpty()) {
       console.log("Errors found");
       const sortedInputErrors = generateContextFromErrorArray(inputErrors);
-      const context = {...inputData, ...sortedInputErrors};
-      res.render('signup', context);
+      const inputContext = {...inputData, ...sortedInputErrors};
+      res.render('signup', inputContext);
       return;
     }
 
-    res.send("You didn't catch the errors");
-    return;
+    // Is email already in use?
+    // body('email').custom(async value => {
+    //   const user = await UserCollection.findUserByEmail(value);
+    //   if (user) {
+    //     throw new Error('E-mail already in use');
+    //   }
+    // });
 
-    /*
-    What user errors are possible?
+    // Check if the email exists in the database
+    const emailTaken = await User.findOne({ email: req.body.email }).exec();
+    // , (err, existingUser) => {
+    //   if (err) {
+    //     // Handle error
+    //     return res.status(500).send(err.message);
+    //   }
+    //   return existingUser;
+    // });
 
-    - Email format incorrect (handled on frontend)
-    - Display name of an insufficient length (handled on frontend)
-    - Email is already in use
-    - Display name is already in use
-    - Display name includes illegal characters (handled on backend)
-    */
+    const displaynameTaken = false;
 
+    // if (req.body.displayname !== "") {
+    //   displaynameTaken = await User.findOne({ displayname: req.body.displayname }, (err, existingUser) => {
+    //     if (err) {
+    //       // Handle error
+    //       return res.status(500).send(err.message);
+    //     }
+    //     return existingUser;
+    //   });
+    // };
+
+    // Final errors to check for in user input
+    if (emailTaken || displaynameTaken) {
+      const dbErrors = {
+        "emailError": [],
+        "displaynameError": []
+      };
+
+      if (emailTaken) {
+        dbErrors['emailError'].push(messages.errors.emailInUse);
+      }
+
+      if (displaynameTaken) {
+        dbErrors['displaynameError'].push(messages.errors.displaynameInUse);
+      }
+
+      const dbContext = {...inputData, ...dbErrors};
+      res.render('signup', dbContext);
+      return;
+    }
+
+    bcrypt.hash(req.body.password, 10, async (err, hashedPassword) => {
+      // if err, do something
+      if (err) {
+        return next(err);
+      } else {
+        const user = new User({
+          email: req.body.email,
+          displayname: req.body.displayname,
+          hashed_password: hashedPassword,
+          isMember: false,
+          isAdmin: false
+        });
+
+        await user.save();
+        res.redirect("/member");
+      }
+    });
   }
 );
 
