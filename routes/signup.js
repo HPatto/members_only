@@ -81,45 +81,6 @@ router.get('/', function(req, res, next) {
   res.render('signup');
 });
 
-/*
-emailValid, passwordLength, confirmpasswordMatch, displaynameValid
-
-    // Is email already in use?
-    body('email').custom(async value => {
-      const user = await UserCollection.findUserByEmail(value);
-      if (user) {
-        throw new Error('E-mail already in use');
-      }
-    });
-
-    // Is display name already in use?
-    body('displayname').custom(async value => {
-      const user = await UserCollection.findUserByName(value); // Incorrect?
-      if (user) {
-        throw new Error('Display name already in use');
-      }
-    });
-
-    // Hash and salt password, store the user
-    bcrypt.hash(req.body.password, 10, async (err, hashedPassword) => {
-      // if err, do something
-      if (err) {
-        return next(err);
-      } else {
-        const user = new User({
-          email: req.body.email,
-          displayname: req.body.displayname,
-          hashed_password: hashedPassword,
-          isMember: false,
-          isAdmin: false
-        });
-
-        const result = await user.save();
-        res.redirect("/member");
-      }
-    });
-*/
-
 /* POST new user. */
 router.post(
   '/',
@@ -163,17 +124,11 @@ router.post(
     //   return existingUser;
     // });
 
-    const displaynameTaken = false;
+    let displaynameTaken = false;
 
-    // if (req.body.displayname !== "") {
-    //   displaynameTaken = await User.findOne({ displayname: req.body.displayname }, (err, existingUser) => {
-    //     if (err) {
-    //       // Handle error
-    //       return res.status(500).send(err.message);
-    //     }
-    //     return existingUser;
-    //   });
-    // };
+    if (req.body.displayname !== "") {
+      displaynameTaken = await User.findOne({ displayname: req.body.displayname }).exec();
+    };
 
     // Final errors to check for in user input
     if (emailTaken || displaynameTaken) {
@@ -209,7 +164,7 @@ router.post(
         });
 
         await user.save();
-        res.redirect("/member");
+        res.redirect("/user");
       }
     });
   }

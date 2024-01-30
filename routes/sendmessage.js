@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const User = require('../models/userModel');
+const Message = require('../models/messageModel');
+const messages = require('../config/messages');
 
 // Environment variables
 require('dotenv').config();
@@ -15,30 +17,36 @@ const isAuthenticated = (req, res, next) => {
   res.redirect('/'); // Adjust the path based on your application
 };
 
-/* GET membership attempt page. */
-router.get('/', isAuthenticated, function(req, res, next) {
-  res.render('memberattempt');
-});
-
-/* POST membership attempt page. */
+/* POST message. */
 router.post('/',
   isAuthenticated,
-  body('membershipcode')
+  body('message')
   .trim()
-  .isLength({ max: "25" })
+  .isLength({ max: "200" })
+  .withMessage(messages.errors.messageLength)
   .escape(),
   async (req, res, next) => {
-
-    if (req.body.membershipcode === process.env.membershipCode) {
-      const user = await User.findById(req.user._id);
-      user.isMember = true;
-      await user.save();
-
-      res.redirect('/');
-      return;
+    const messageErrors = validationResult(req);
+    
+    if (!(messageErrors.isEmpty())) {
+        next(err);
     }
+    console.log("USER");
+    console.log(req.user);
+    console.log("USER");
+    console.log("BODY");
+    console.log(req.body);
+    console.log("BODY");
+    // console.log(req.user._id);
+    // console.log(req.body.message);
 
-    res.render('memberattempt');
+    const newMessage = new Message({
+        userID: req.user._id,
+        text: req.body.message
+    })
+
+    await newMessage.save();
+    res.redirect("/");
     return;
   }
 );

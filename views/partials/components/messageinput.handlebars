@@ -1,8 +1,10 @@
 <div class="message-input full-width">
-    <input type="text" maxlength="200" required placeholder="What's on your mind?">
-    <div class="send-message-button">
-        <button class="enclosed-send-button" type="submit">
-            SEND
-        </button>
-    </div>
+    <form action="/sendmessage" method="POST">
+        <input type="text" name="message" maxlength="200" required placeholder="What's on your mind? 200 chars. or less!">
+        <div class="send-message-button">
+            <button class="enclosed-send-button" type="submit">
+                SEND
+            </button>
+        </div>
+    </form>
 </div>

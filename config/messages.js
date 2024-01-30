@@ -8,7 +8,8 @@ module.exports = {
       passwordMatch: 'Do not match.',
       displaynameFormat: 'Invalid format.',
       displaynameLength: 'Max. 20 chars.',
-      displaynameInUse: 'Already in use.'
+      displaynameInUse: 'Already in use.',
+      messageLength: 'Max. 200 chars.'
     },
   };
   
