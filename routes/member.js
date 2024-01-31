@@ -1,23 +1,47 @@
 const express = require('express');
 const router = express.Router();
 const Message = require('../models/messageModel');
+const User = require('../models/userModel');
 const he = require('he');
 
-function getDataFromQuery(queryObject) {
-  let textData = [];
-
-  queryObject.forEach((docObject) => {
-    textData.push(getInfoFromDocument(docObject));
+async function getDataFromQuery(queryObject) {
+  const textDataPromises = queryObject.map(async (docObject) => {
+    return await getInfoFromDocument(docObject);
   });
+
+  // Wait for all promises to resolve
+  const textData = await Promise.all(textDataPromises);
 
   return textData;
 }
 
-function getInfoFromDocument(docObject) {
+async function getInfoFromDocument(docObject) {
   let info = {
-    text: ""
+    text: "",
+    user: "",
+    time: ""
   };
+
   info['text'] = he.decode((docObject['text']));
+
+  const dbUser = await User.findOne({ _id: docObject['userID'] }).exec();
+
+  if (dbUser) {
+    info['user'] = dbUser.displayname || dbUser.email;
+  } else {
+    // Handle the case where dbUser is not found
+    info['user'] = "Unknown User";
+  }
+
+  
+  const fullTimestamp = docObject['timestamp'];
+  const year = fullTimestamp.getFullYear();
+  const month = fullTimestamp.getMonth() + 1;
+  const day = fullTimestamp.getDate();
+
+  info['time'] = `${day}/${month}/${year}`;
+
+  console.log(info);
 
   return info;
 }
@@ -35,15 +59,21 @@ const isAuthenticated = (req, res, next) => {
 
 /* GET home page. */
 router.get('/', isAuthenticated, async function(req, res, next) {
-  // Will need conditional logic here to serve up w.r.t. cookies.
-  const lastMessages = await Message.find().sort({_id:-1}).limit(10);
-  
-  const messageArray = getDataFromQuery(lastMessages);
+  console.log("Start of try block");
+
+  const lastMessages = await Message.find().sort({_id: -1}).limit(10);
+  console.log("After fetching messages");
+
+  const messageArray = await getDataFromQuery(lastMessages);
+  console.log("After processing messages");
+
   const context = {
     messages: messageArray
   };
 
+  console.log("We're going to render");
   res.render('member', context);
+  return;
 });
 
 module.exports = router;

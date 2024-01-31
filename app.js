@@ -39,6 +39,7 @@ const logoutRouter = require('./routes/logout');
 const userRouter = require('./routes/user');
 const memberAttemptRouter = require('./routes/memberattempt');
 const sendMessageRouter = require('./routes/sendmessage');
+const deleteMessageRouter = require('./routes/deletemessage');
 
 // Some security stuff here?
 
@@ -131,7 +132,6 @@ app.use('/public', express.static('public'));
 
 app.use('/', indexRouter);
 app.use('/index', indexRouter);
-app.use('/', indexRouter);
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
@@ -140,6 +140,7 @@ app.use('/admin', adminRouter);
 app.use('/user', userRouter);
 app.use('/memberattempt', memberAttemptRouter);
 app.use('/sendmessage', sendMessageRouter);
+app.use('/deletemessage', deleteMessageRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -3,13 +3,13 @@ const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const User = require('../models/userModel');
 const Message = require('../models/messageModel');
-const messages = require('../config/messages');
 
 // Environment variables
 require('dotenv').config();
 
 // Middleware to check if the user is authenticated
 const isAuthenticated = (req, res, next) => {
+    // console.log("In the delete message");
   if (req.isAuthenticated()) {
     return next(); // User is authenticated, proceed to the next middleware or route handler
   }
@@ -17,32 +17,22 @@ const isAuthenticated = (req, res, next) => {
   res.redirect('/index'); // Adjust the path based on your application
 };
 
-/* POST message. */
+// /* GET membership attempt page. */
+// router.get('/', isAuthenticated, function(req, res, next) {
+//   res.render('memberattempt');
+// });
+
+/* POST membership attempt page. */
 router.post('/',
   isAuthenticated,
-  body('message')
-  .trim()
-  .isLength({ max: "200" })
-  .withMessage(messages.errors.messageLength)
-  .escape(),
   async (req, res, next) => {
-    // console.log(req.body.message);
-    const messageErrors = validationResult(req);
-    
-    if (!(messageErrors.isEmpty())) {
-        next(err);
-    }
 
-    const newMessage = new Message({
-        userID: req.user._id,
-        text: req.body.message
-    })
+    console.log(req.body.messageid);
 
-    console.log("After creating the message object:");
-    console.log(req.body.message);
+    await Message.findByIdAndDelete(req.body.messageid).exec();
+    // console.log(messageToDelete);
 
-    await newMessage.save();
-    res.redirect("/index");
+    res.redirect('/index', 301);
     return;
   }
 );

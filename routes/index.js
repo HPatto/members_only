@@ -24,7 +24,7 @@ function getInfoFromDocument(docObject) {
 }
 
 /* GET home page. */
-router.get('/index', async function(req, res, next) {
+router.get('/', async function(req, res, next) {
   // Get messages
   // Get the messages collection.
   const lastMessages = await Message.find().sort({_id:-1}).limit(10);
