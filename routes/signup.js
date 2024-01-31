@@ -164,7 +164,7 @@ router.post(
         });
 
         await user.save();
-        res.redirect("/user");
+        res.redirect("/index");
       }
     });
   }

@@ -1,6 +1,5 @@
 <div class="message-box">
-    {{> components/messages/messageentitydefault}}
-    {{> components/messages/messageentitydefault}}
-    {{> components/messages/messageentitydefault}}
-    {{> components/messages/messageentitydefault}}
+    {{#each messages }}
+        {{> components/messages/messageentitydefault}}
+    {{/each}}
 </div>

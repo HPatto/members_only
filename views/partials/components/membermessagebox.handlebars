@@ -1,5 +1,5 @@
 <div class="message-box">
-    {{> components/messages/messageentitymember}}
-    {{> components/messages/messageentitymember}}
-    {{> components/messages/messageentitymember}}
+    {{#each messages }}
+        {{> components/messages/messageentitymember}}
+    {{/each}}
 </div>

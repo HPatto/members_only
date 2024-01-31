@@ -7,7 +7,7 @@ const isAuthenticated = (req, res, next) => {
     return next(); // User is authenticated, proceed to the next middleware or route handler
   }
   // User is not authenticated, redirect to the login page or send an unauthorized response
-  res.redirect('/'); // Adjust the path based on your application
+  res.redirect('/index'); // Adjust the path based on your application
 };
 
 /* GET home page. */

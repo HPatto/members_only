@@ -14,7 +14,7 @@ const isAuthenticated = (req, res, next) => {
     return next(); // User is authenticated, proceed to the next middleware or route handler
   }
   // User is not authenticated, redirect to the login page or send an unauthorized response
-  res.redirect('/'); // Adjust the path based on your application
+  res.redirect('/index'); // Adjust the path based on your application
 };
 
 /* POST message. */
@@ -26,17 +26,18 @@ router.post('/',
   .withMessage(messages.errors.messageLength)
   .escape(),
   async (req, res, next) => {
+    // console.log(req.body.message);
     const messageErrors = validationResult(req);
     
     if (!(messageErrors.isEmpty())) {
         next(err);
     }
-    console.log("USER");
-    console.log(req.user);
-    console.log("USER");
-    console.log("BODY");
-    console.log(req.body);
-    console.log("BODY");
+    // console.log("USER");
+    // console.log(req.user);
+    // console.log("USER");
+    // console.log("BODY");
+    // console.log(req.body);
+    // console.log("BODY");
     // console.log(req.user._id);
     // console.log(req.body.message);
 
@@ -45,8 +46,11 @@ router.post('/',
         text: req.body.message
     })
 
+    console.log("After creating the message object:");
+    console.log(req.body.message);
+
     await newMessage.save();
-    res.redirect("/");
+    res.redirect("/index");
     return;
   }
 );
