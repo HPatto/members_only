@@ -116,13 +116,6 @@ router.post(
 
     // Check if the email exists in the database
     const emailTaken = await User.findOne({ email: req.body.email }).exec();
-    // , (err, existingUser) => {
-    //   if (err) {
-    //     // Handle error
-    //     return res.status(500).send(err.message);
-    //   }
-    //   return existingUser;
-    // });
 
     let displaynameTaken = false;
 
@@ -164,7 +157,7 @@ router.post(
         });
 
         await user.save();
-        res.redirect("/index");
+        res.redirect("/user");
       }
     });
   }

@@ -34,25 +34,21 @@ router.get('/', async function(req, res, next) {
     messages: messageArray
   };
 
-  // console.log(lastMessages);
-
   if (req.isAuthenticated()) {
     if (req.user.isAdmin) {
       res.redirect('admin', 301);
       return;
     } else if (req.user.isMember) {
-      // console.log("We are a member");
-      // console.log(context);
-      // req.squirmboy = context;
       res.redirect('member', 301);
       return;
     } else {
+      console.log("User is weirdly not authenticated.");
       res.redirect('user', 301);
       return;
     }
   }
 
-  console.log("We going to the landing page");
+  // console.log("We going to the landing page");
   res.render('landing', context);
   return;
 });
