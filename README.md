@@ -87,7 +87,7 @@ The next project should include RESTful API construction, and separation of the 
 
 I tried several different HTML rendering options, and settled on Handlebars. I was looking for the ability to pass in database content and have re-useable templates. Writing feels more natural with HTML-style syntax.
 
-CSS / Sass with distinct variable definition has been enjoyable. I found earlier projects to get cluttered quickly, and now employ "style guide" parameters that allow rapid change.
+CSS / Sass with key variable definition has been enjoyable to use. I found earlier projects to get cluttered quickly, and now employ "style guide" parameters that allow rapid change.
 
 #### Backend
 
@@ -95,7 +95,7 @@ I spent some time understanding middleware, which seems both a ubiquitous and sl
 
 In general, I preferred separate classification of middleware functions which would then be imported as necessary. Definitions within the route seem messy, although no doubt it comes with practice.
 
-The user authentication and encryption was interesting and one of my main interests in the project.
+The user authentication and encryption was interesting and one of my main motivations for the project.
 Instructive to see how information is divided between cookies, req / res bodies, and dB sessions.
 
 #### Database
