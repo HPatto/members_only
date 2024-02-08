@@ -204,7 +204,7 @@ There are several permission levels available:
 - [X] Expected environment variables
 - [X] Define functionality / permission levels
 - [X] Implement front-end
-    [X] Handlebar template with header / footer
+  - [X] Handlebar template with header / footer
     [X] Handlebar template with dynamic content allowed
     [X] Handlebar templates with nested, dynamic content allowed
     [X] Client-side error handling
