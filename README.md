@@ -205,16 +205,16 @@ There are several permission levels available:
 - [X] Define functionality / permission levels
 - [X] Implement front-end
   - [X] Handlebar template with header / footer
-    [X] Handlebar template with dynamic content allowed
-    [X] Handlebar templates with nested, dynamic content allowed
-    [X] Client-side error handling
+  - [X] Handlebar template with dynamic content allowed
+  - [X] Handlebar templates with nested, dynamic content allowed
+  - [X] Client-side error handling
 - [X] Implement back-end
-- - [X] Define necessary imports for global app.js (Passport, Mongoose, bcryptjs etc.)
-- - [X] Define top-level routing (landing, sign-up, log-in etc.)
-- - [X] Define outline of HTTP methods available on each route
-- - [X] Define logic for each method within a route
-- - - [X] Server-side error-handling
-- - - [X] Server-side middleware
+  - [X] Define necessary imports for global app.js (Passport, Mongoose, bcryptjs etc.)
+  - [X] Define top-level routing (landing, sign-up, log-in etc.)
+  - [X] Define outline of HTTP methods available on each route
+  - [X] Define logic for each method within a route
+    - [X] Server-side error-handling
+    - [X] Server-side middleware
 - [X] Create dummy users for each permission level
 - [ ] Allow scrolling to fetch more messages on-demand
 - [ ] Allow manual account deletion
