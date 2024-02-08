@@ -8,7 +8,7 @@ const isAuthenticated = (req, res, next) => {
       return next(); // User is authenticated, proceed to the next middleware or route handler
     }
     // User is not authenticated, redirect to the login page or send an unauthorized response
-    res.redirect(301, '/index'); // Adjust the path based on your application
+    res.redirect(301, '/main'); // Adjust the path based on your application
   };
 
 /* GET logout page. */
@@ -28,7 +28,7 @@ router.get("/", isAuthenticated, (req, res, next) => {
     //     res.redirect('/'); // Redirect to the home page or any other desired location
     // });
     res.clearCookie('connect.sid');
-    res.redirect('/index');
+    res.redirect('/main');
 });
 
 module.exports = router;

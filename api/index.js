@@ -30,7 +30,7 @@ const User = require('../models/userModel.js');
 // const Message = require('./models/messageModel.js');
 
 // Import app routing
-const indexRouter = require('../routes/index');
+const mainRouter = require('../routes/main');
 const memberRouter = require('../routes/member.js');
 const adminRouter = require('../routes/admin.js');
 const signupRouter = require('../routes/signup.js');
@@ -130,8 +130,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/node_modules', express.static('node_modules'));
 app.use('/public', express.static('public'));
 
-app.use('/', indexRouter);
-app.use('/index', indexRouter);
+app.use('/', mainRouter);
+app.use('/main', mainRouter);
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);

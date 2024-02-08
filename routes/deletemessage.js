@@ -5,7 +5,7 @@ const User = require('../models/userModel');
 const Message = require('../models/messageModel');
 
 // Environment variables
-require('dotenv').config();
+// require('dotenv').config();
 
 // Middleware to check if the user is authenticated
 const isAuthenticated = (req, res, next) => {
@@ -14,7 +14,7 @@ const isAuthenticated = (req, res, next) => {
     return next(); // User is authenticated, proceed to the next middleware or route handler
   }
   // User is not authenticated, redirect to the login page or send an unauthorized response
-  res.redirect('/index'); // Adjust the path based on your application
+  res.redirect('/main'); // Adjust the path based on your application
 };
 
 // /* GET membership attempt page. */
@@ -32,7 +32,7 @@ router.post('/',
     await Message.findByIdAndDelete(req.body.messageid).exec();
     // console.log(messageToDelete);
 
-    res.redirect('/index', 301);
+    res.redirect('/main', 301);
     return;
   }
 );
