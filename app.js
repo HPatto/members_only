@@ -26,20 +26,20 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
 
 // Add new schemas to the database (Done via imports?)
-const User = require('../models/userModel.js');
+const User = require('./models/userModel.js');
 // const Message = require('./models/messageModel.js');
 
 // Import app routing
-const mainRouter = require('../routes/main');
-const memberRouter = require('../routes/member.js');
-const adminRouter = require('../routes/admin.js');
-const signupRouter = require('../routes/signup.js');
-const loginRouter = require('../routes/login.js');
-const logoutRouter = require('../routes/logout.js');
-const userRouter = require('../routes/user.js');
-const memberAttemptRouter = require('../routes/memberattempt.js');
-const sendMessageRouter = require('../routes/sendmessage.js');
-const deleteMessageRouter = require('../routes/deletemessage.js');
+const mainRouter = require('./routes/main.js');
+const memberRouter = require('./routes/member.js');
+const adminRouter = require('./routes/admin.js');
+const signupRouter = require('./routes/signup.js');
+const loginRouter = require('./routes/login.js');
+const logoutRouter = require('./routes/logout.js');
+const userRouter = require('./routes/user.js');
+const memberAttemptRouter = require('./routes/memberattempt.js');
+const sendMessageRouter = require('./routes/sendmessage.js');
+const deleteMessageRouter = require('./routes/deletemessage.js');
 
 // Some security stuff here?
 
