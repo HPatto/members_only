@@ -204,10 +204,10 @@ There are several permission levels available:
 - [X] Expected environment variables
 - [X] Define functionality / permission levels
 - [X] Implement front-end
-- - [X] Handlebar template with header / footer
-- - [X] Handlebar template with dynamic content allowed
-- - [X] Handlebar templates with nested, dynamic content allowed
-- - [X] Client-side error handling
+    [X] Handlebar template with header / footer
+    [X] Handlebar template with dynamic content allowed
+    [X] Handlebar templates with nested, dynamic content allowed
+    [X] Client-side error handling
 - [X] Implement back-end
 - - [X] Define necessary imports for global app.js (Passport, Mongoose, bcryptjs etc.)
 - - [X] Define top-level routing (landing, sign-up, log-in etc.)
