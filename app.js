@@ -1,5 +1,5 @@
 // Environment variables
-require('dotenv').config();
+// require('dotenv').config();
 
 // Import modules
 const createError = require('http-errors');
