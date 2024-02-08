@@ -1,5 +1,5 @@
 // Environment variables
-// require('dotenv').config();
+// require('dotenv').config(); // Uncomment for local development.
 
 // Import modules
 const createError = require('http-errors');
@@ -26,20 +26,20 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
 
 // Add new schemas to the database (Done via imports?)
-const User = require('./models/userModel.js');
+const User = require('../models/userModel.js');
 // const Message = require('./models/messageModel.js');
 
 // Import app routing
-const indexRouter = require('./routes/index');
-const memberRouter = require('./routes/member');
-const adminRouter = require('./routes/admin');
-const signupRouter = require('./routes/signup');
-const loginRouter = require('./routes/login');
-const logoutRouter = require('./routes/logout');
-const userRouter = require('./routes/user');
-const memberAttemptRouter = require('./routes/memberattempt');
-const sendMessageRouter = require('./routes/sendmessage');
-const deleteMessageRouter = require('./routes/deletemessage');
+const indexRouter = require('../routes/index');
+const memberRouter = require('../routes/member.js');
+const adminRouter = require('../routes/admin.js');
+const signupRouter = require('../routes/signup.js');
+const loginRouter = require('../routes/login.js');
+const logoutRouter = require('../routes/logout.js');
+const userRouter = require('../routes/user.js');
+const memberAttemptRouter = require('../routes/memberattempt.js');
+const sendMessageRouter = require('../routes/sendmessage.js');
+const deleteMessageRouter = require('../routes/deletemessage.js');
 
 // Some security stuff here?
 
