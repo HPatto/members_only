@@ -7,6 +7,7 @@
   },
   "scripts": {
     "build-css": "node-sass --watch ./src/stylesheets/style.scss ./public/stylesheets/style.css",
+    "build": "node-sass ./src/stylesheets/style.scss ./public/stylesheets/style.css",
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www",
     "serverstart": "DEBUG=members_only:* npm run devstart",
