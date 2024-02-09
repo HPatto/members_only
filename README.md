@@ -81,6 +81,8 @@ Messaging web service, offering tiers of permissions and persistent data.
 
 An interesting project to connect back-end and front-end, with multiple database schemas and general data persistence. I enjoy the abstractions that improve the developer experience, and have found time invested to pay serious dividends.
 
+Deploying to Vercel was difficult. This project doesn't match their use-case, so some alterations to project structure were necessary. Best to follow a more complete framework.
+
 The next project should include RESTful API construction, and separation of the backend and frontend.
 
 #### Frontend
