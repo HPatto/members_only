@@ -21,8 +21,7 @@ const dbOptions = {
   useNewUrlParser: true,
   useUnifiedTopology: true
 };
-// mongoose.connect(process.env.dbConnect);//, dbOptions);
-mongoose.connect("mongodb+srv://hpatto97:5SQskH8KYadfhpMO@genesis.wwg3zvs.mongodb.net/?retryWrites=true&w=majority");
+mongoose.connect(process.env.dbConnect);//, dbOptions);
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
 
@@ -108,7 +107,7 @@ const sessionStore = MongoStore.create(
 );
 
 app.use(session(
-  { secret: "cats",//process.env.sessionSecret,
+  { secret: process.env.sessionSecret,
     resave: false,
     saveUninitialized: false,
     store: sessionStore,
