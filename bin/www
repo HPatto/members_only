@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-const app = require('..');
+const app = require('../index');
 const debug = require('debug')('members-only:server');
 const http = require('http');
 
