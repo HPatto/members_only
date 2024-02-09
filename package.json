@@ -8,8 +8,8 @@
   "scripts": {
     "build-css": "node-sass --watch ./src/stylesheets/style.scss ./public/stylesheets/style.css",
     "build": "node-sass ./src/stylesheets/style.scss ./public/stylesheets/style.css",
-    "start": "node ./bin/www",
-    "devstart": "nodemon ./bin/www",
+    "start": "node ./index.js",
+    "devstart": "nodemon ./index.js",
     "serverstart": "DEBUG=members_only:* npm run devstart",
     "fullstart": "concurrently \"npm run build-css\" \"npm run serverstart\""
   },
