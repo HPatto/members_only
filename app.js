@@ -1,5 +1,5 @@
 // Environment variables
-// require('dotenv').config(); // Uncomment for local development.
+require('dotenv').config(); // Uncomment for local development.
 
 // Import modules
 const createError = require('http-errors');
